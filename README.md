@@ -1,4 +1,4 @@
-CSS Minification Module
+SilverStripe Minify CSS Module
 =============
 
 This module replaces part of the Requirements system to compress CSS files using http://code.google.com/p/minify/.
