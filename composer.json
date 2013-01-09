@@ -1,0 +1,15 @@
+{
+	"name": "flyingmonkey/silverstripe-minify",
+	"description": "Minifies CSS requirements using Minify (http://code.google.com/p/minify/)",
+	"type": "silverstripe-module",
+	"keywords": ["silverstripe", "minify"],
+	"authors": [
+		{
+			"name": "Nathan Cox",
+			"email": "nathan@flyingmonkey.co.nz"
+		}
+	],
+	"require": {
+		"silverstripe/framework": ">=3.0"
+	}
+}
