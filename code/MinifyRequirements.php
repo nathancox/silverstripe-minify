@@ -87,19 +87,23 @@ class Minify_Requirements_Backend extends Requirements_Backend {
 			if(!$refresh) continue;
 
 			$combinedData = "";
+			
+			$moduleDir = $this->getModulePath();
+			
 			foreach(array_diff($fileList, $this->blocked) as $file) {
 				$fileContent = file_get_contents($base . $file);
 				// if we have a javascript file and jsmin is enabled, minify the content
 				$isJS = stripos($file, '.js');
 				if($isJS && $this->combine_js_with_jsmin) {
 					
-					require_once('thirdparty/jsmin/jsmin.php');
+					require_once('../'.$moduleDir.'/thirdparty/jsmin/jsmin.php');
 					increase_time_limit_to();
 					$fileContent = JSMin::minify($fileContent);
 					
 				} else if (stripos($file, '.css')) { 
+					
 					// stolen shamelessly from Tonyair http://www.silverstripe.org/general-questions/show/14206
-					require_once('../minify/thirdparty/min/lib/Minify/CSS.php'); 
+					require_once('../'.$moduleDir.'/thirdparty/min/lib/Minify/CSS.php'); 
 					increase_time_limit_to();
 					
 					$minifyCSSConfig = array();
@@ -138,6 +142,16 @@ class Minify_Requirements_Backend extends Requirements_Backend {
 		$this->javascript = $newJSRequirements;
 		$this->css = $newCSSRequirements;
   }
+
+	function getModulePath() {
+		$path = dirname(__DIR__);
+		$path = str_replace(BASE_PATH.DIRECTORY_SEPARATOR, '', $path);
+		
+		// for windows
+		$path = str_replace('\\', '/', $path);
+		
+		return $path;
+	}
 
 	
 }
