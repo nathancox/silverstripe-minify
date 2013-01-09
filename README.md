@@ -44,7 +44,7 @@ Requirements::combine_files("common.min.css", $files);
 
 ```
 
-Your CSS files will automaltically be minified when combining (like JavaScript is).
+Your CSS files will automatically be minified when combining (like JavaScript is).
 
 By default relative urls in the CSS files (eg background-image:url('../images/background.png');) will be rewritten so the combined CSS file can be kept in assets (eg to background-image:url('/themes/mytheme/images/background.png');) but you can turn this behaviour off by putting the following line in your _config.php:
 
