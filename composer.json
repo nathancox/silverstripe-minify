@@ -1,5 +1,5 @@
 {
-	"name": "flyingmonkey/silverstripe-minify",
+	"name": "nathancox/silverstripe-minify",
 	"description": "Minifies CSS requirements using Minify (http://code.google.com/p/minify/)",
 	"type": "silverstripe-module",
 	"keywords": ["silverstripe", "minify"],
