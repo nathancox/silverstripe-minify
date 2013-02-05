@@ -11,5 +11,8 @@
 	],
 	"require": {
 		"silverstripe/framework": ">=3.0"
+	},
+	"extra": {
+		"installer-name": "minify"
 	}
 }
