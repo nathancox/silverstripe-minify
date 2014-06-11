@@ -95,8 +95,9 @@ class Minify_Requirements_Backend extends Requirements_Backend {
 				// if we have a javascript file and jsmin is enabled, minify the content
 				$isJS = stripos($file, '.js');
 				if($isJS && $this->combine_js_with_jsmin) {
-					
-					require_once('../'.$moduleDir.'/thirdparty/jsmin/jsmin.php');
+					//We do not need to require the JSMIN class. Its already available to us from the Silvertripe generated manifest file
+					// and this requirement is looking for a file that doesnt exist
+					//require_once('../'.$moduleDir.'/thirdparty/jsmin/jsmin.php');
 					increase_time_limit_to();
 					$fileContent = JSMin::minify($fileContent);
 					

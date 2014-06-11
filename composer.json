@@ -6,10 +6,13 @@
 	"authors": [
 		{
 			"name": "Nathan Cox",
-			"email": "nathan@flyingmonkey.co.nz"
+			"email": "me@nathan.net.nz"
 		}
 	],
 	"require": {
 		"silverstripe/framework": ">=3.0"
+	},
+	"extra": {
+		"installer-name": "minify"
 	}
 }
