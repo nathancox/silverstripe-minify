@@ -13,7 +13,8 @@ Nathan Cox (<nathan@flyingmonkey.co.nz>)
 Requirements
 ---------------
 
-SilverStripe 3.0+
+SilverStripe 3.1+
+Check out the SS-3.0 branch for a version compatible with SS 3.0
 
 Installation Instructions
 -------------------------
