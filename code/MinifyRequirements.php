@@ -2,14 +2,21 @@
 
 class Minify_Requirements_Backend extends Requirements_Backend {
 
-	static $rewrite_uris = true;
+	/**
+	 * @var bool
+	 */
+	private static $rewrite_uris = true;
 
+	/**
+	 * @param string $filename
+	 * @param string $content
+	 * @return string
+	 */
 	protected function minifyFile($filename, $content) {
 
 		// if we have a javascript file and jsmin is enabled, minify the content
 		$isJS = stripos($filename, '.js');
 		if($isJS && $this->combine_js_with_jsmin) {
-			//require_once('thirdparty/jsmin/jsmin.php');
 
 			increase_time_limit_to();
 			$content = JSMin::minify($content);
@@ -18,7 +25,7 @@ class Minify_Requirements_Backend extends Requirements_Backend {
 			increase_time_limit_to();
 			$minifyCSSConfig = array();
 
-			if (self::$rewrite_uris) {
+			if (Config::inst()->get('Minify_Requirements_Backend', 'rewrite_uris')) {
 				$minifyCSSConfig['currentDir'] = Director::baseFolder() . '/' . dirname($filename);
 			}
 
