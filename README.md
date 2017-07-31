@@ -52,7 +52,7 @@ By default relative urls in the CSS files (eg background-image:url('../images/ba
 ```php
 <?php
 
-Minify_Requirements_Backend::$rewrite_uris = false;
+Config::inst()->update('Minify_Requirements_Backend', 'rewrite_uris', false);
 
 ```
 
@@ -60,3 +60,8 @@ Known Issues
 ------------
 
 [Issue Tracker](https://github.com/nathancox/silverstripe-minify/issues)
+
+Credits
+-------
+[JSMin](https://github.com/mrclay/jsmin-php)
+[Minify](https://github.com/mrclay/minify)

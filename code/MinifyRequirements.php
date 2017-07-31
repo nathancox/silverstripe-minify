@@ -1,5 +1,7 @@
 <?php
 
+use JSMin\JSMin;
+
 class Minify_Requirements_Backend extends Requirements_Backend {
 
 	/**
@@ -21,15 +23,14 @@ class Minify_Requirements_Backend extends Requirements_Backend {
 			increase_time_limit_to();
 			$content = JSMin::minify($content);
 		} else if (stripos($filename, '.css')) {
-
 			increase_time_limit_to();
 			$minifyCSSConfig = array();
 
-			if (Config::inst()->get('Minify_Requirements_Backend', 'rewrite_uris')) {
+			if (Config::inst()->get(__CLASS__, 'rewrite_uris')) {
 				$minifyCSSConfig['currentDir'] = Director::baseFolder() . '/' . dirname($filename);
 			}
 
-			$content = Minify_CSS::minify($content, $minifyCSSConfig);
+			$content = Minify_CSSmin::minify($content, $minifyCSSConfig);
 		}
 
 		$content .= ($isJS ? ';' : '') . "\n";
